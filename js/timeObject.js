@@ -59,7 +59,5 @@ export class timeObject {
         // Assign correct values to global variables.
         this.correctHour = newCorrectDate.getHours();
         this.correctMinute = newCorrectDate.getMinutes();
-
-        console.log(this.correctHour, "", this.correctMinute);
     };
 }
