@@ -6,19 +6,33 @@
 
 html {
     font-size: 62.5%;
+    margin: 0;
 }
 
 body {
     background-color: #0e0e0e;
     font-family: "Prompt", sans-serif;
     color: #fff;
+}
+
+/* Main container */
+
+.container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    row-gap: 2rem;
+    column-gap: 4rem;
     max-width: 120rem;
     margin: 0 auto;
+    margin-left: 2rem;
+    margin-right: 2rem;
 }
 
 /* HEADER PART */
 
-.header {
+header {
     margin: 0 auto;
 }
 
@@ -26,6 +40,7 @@ body {
     position: relative;
     width: 50rem;
     margin: 0 auto;
+    height: 12rem;
 }
 
 .version-title {
@@ -33,24 +48,21 @@ body {
     color: red;
     font-weight: 600;
     position: absolute;
-    top: 50%;
-    right: -11%;
+    top: 30%;
+    right: -5%;
     transform: rotate(-45deg);
 }
 
 .logo {
     font-size: 8rem;
-    padding-top: 4rem;
-    padding-left: 6rem;
     text-align: center;
 }
 
 /* MAIN PAGE */
 
-.container {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(7, 1fr);
+main {
+    grid-column: 1 / -1;
+    grid-row: 2 /5;
 }
 
 .oldanswers-container {
@@ -59,6 +71,22 @@ body {
     display: flex;
     flex-direction: column;
     width: 33rem;
+    margin-right: 3rem;
+    grid-row: 1/2;
+    grid-column: 2/3;
+    overflow-y: scroll;
+}
+
+.oldanswers-container::-webkit-scrollbar {
+    width: 1rem;
+}
+
+.oldanswers-container::-webkit-scrollbar-track {
+    background: #0e0e0e;
+}
+
+body::-webkit-scrollbar {
+    width: 12px; /* width of the entire scrollbar */
 }
 
 .oldanswers-container p {
@@ -68,29 +96,27 @@ body {
 }
 
 aside {
-    grid-column: 5/7;
-    grid-row: 2/5;
 }
 
 .question-box {
     height: 30rem;
     background-color: #181818;
-    grid-column: 2/4;
-    grid-row: 2/4;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-width: 35rem;
     font-size: 2rem;
+    grid-column: 1/2;
+    grid-row: 1/2;
 }
 
 .answer-container {
-    grid-row: 4/5;
-    grid-column: 2/4;
     display: flex;
     justify-content: center;
     margin-top: 5rem;
+    grid-column: 1/3;
+    grid-row: 2/4;
 }
 
 .answer-container-row {
@@ -127,4 +153,47 @@ aside {
 .start-time-text {
     color: red;
     display: block;
+}
+
+/* Media Queries below */
+
+@media (max-width: 50em) {
+    .container {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr 15rem 1fr;
+        margin: 0;
+        column-gap: 0;
+        grid-gap: 0;
+    }
+
+    .logo-container {
+        width: 100%;
+    }
+
+    .logo {
+        font-size: 6rem;
+    }
+
+    .version-title {
+        right: -0%;
+    }
+
+    .question-box {
+        grid-row: 1/3;
+        grid-column: 1/-1;
+        width: 100%;
+    }
+
+    .answer-container {
+        grid-row: 2/3;
+        grid-column: 1/-1;
+        width: 100%;
+    }
+
+    .oldanswers-container {
+        grid-row: 3/4;
+        grid-column: 1/-1;
+        width: 100%;
+        align-items: center;
+    }
 }

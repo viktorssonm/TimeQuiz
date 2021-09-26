@@ -42,7 +42,7 @@ const addAnswerToList = (isCorrect, timeInput) => {
     const newAnswertext = document.createElement("p");
     const iconElement = document.createElement("img");
 
-    let timeInputSplitted = timeInput.value.replace("0", "").split(":");
+    let timeInputSplitted = timeInput.value.split(":");
     if (isCorrect) {
         newAnswertext.textContent = `${timeQuiz.startHour}:${timeQuiz.startMinute} + ${timeQuiz.hourToChange}:${timeQuiz.minuteToChange} = ${timeInputSplitted[0]}:${timeInputSplitted[1]}`;
         iconElement.src = new URL("../img/check.svg", import.meta.url);
@@ -61,6 +61,11 @@ const writeLogicToScreen = () => {
     questionText.textContent = `Time ${timeQuiz.startHour}:${timeQuiz.startMinute}`;
     timeToAdd.textContent = `Add ${timeQuiz.hourToChange}h ${timeQuiz.minuteToChange}min`;
     timeInput.value = "00:00";
+
+    // First blur and then focus, to make sur selected digit is hour.
+    timeInput.blur();
+    timeInput.focus();
 };
 
 writeLogicToScreen();
+console.log("******** NO CHEATING PLEASE **********");
