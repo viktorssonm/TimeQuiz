@@ -1,3 +1,4 @@
+/* Basic setup */
 * {
     margin: 0;
     padding: 0;
@@ -93,9 +94,6 @@ body::-webkit-scrollbar {
     padding-left: 2rem;
 }
 
-aside {
-}
-
 .question-box {
     height: 30rem;
     background-color: #181818;
@@ -153,7 +151,7 @@ aside {
     display: block;
 }
 
-/* Media Queries below */
+/* Media Queries  */
 
 @media (max-width: 50em) {
     .container {
