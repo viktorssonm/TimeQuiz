@@ -1,6 +1,6 @@
-import { timeObject } from "./timeObject";
+import { timeQuizGenerator } from "./timeObject";
 
-const timeQuiz = new timeObject();
+const timeQuiz = new timeQuizGenerator();
 
 // Question text
 const questionText = document.querySelector(".start-time-text");

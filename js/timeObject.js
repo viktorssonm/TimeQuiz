@@ -1,4 +1,4 @@
-export class timeObject {
+export class timeQuizGenerator {
     // When initially constructed create new task
     constructor() {
         this.reloadTask();
